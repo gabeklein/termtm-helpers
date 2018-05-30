@@ -1,4 +1,6 @@
 **/.DS_Store
 **/*.log
+**/yarn.lock
 **/node_modules
+packages/*/lib
 package-lock.json
