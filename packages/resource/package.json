@@ -1,6 +1,6 @@
 {
   "name": "@termtm/resource",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "main": "lib/index.js",
   "author": {
     "name": "Gabe Klein",
@@ -12,6 +12,9 @@
     "prepare": "npm run build"
   },
   "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
   "dependencies": {
     "babel-plugin-transform-class-properties": "^6.24.1",
     "babel-preset-env": "^1.7.0"

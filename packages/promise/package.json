@@ -1,6 +1,6 @@
 {
   "name": "@termtm/promise",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Abstractions for easy promise composition",
   "main": "lib/index.js",
   "author": {
@@ -13,6 +13,9 @@
     "prepare": "npm run build"
   },
   "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
   "dependencies": {
     "babel-plugin-transform-class-properties": "^6.24.1",
     "babel-preset-env": "^1.7.0"
