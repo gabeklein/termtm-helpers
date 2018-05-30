@@ -1,0 +1,19 @@
+{
+  "name": "@termtm/resource",
+  "version": "0.0.0",
+  "main": "lib/index.js",
+  "author": {
+    "name": "Gabe Klein",
+    "email": "gabe@termtm.com"
+  },
+  "scripts": {
+    "build": "babel ./src --out-dir ./lib",
+    "dev": "babel ./src --out-dir ./lib --source-maps --watch",
+    "prepare": "npm run build"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-preset-env": "^1.7.0"
+  }
+}
