@@ -1,12 +1,13 @@
 {
   "name": "@termtm/react",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "main": "lib/index.js",
   "author": {
     "name": "Gabe Klein",
     "email": "gabe@termtm.com"
   },
   "scripts": {
+    "prebuild": "rm -rf lib",
     "build": "babel ./src --out-dir ./lib",
     "dev": "babel ./src --out-dir ./lib --source-maps --watch",
     "prepare": "npm run build"

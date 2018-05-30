@@ -1,6 +1,6 @@
 {
   "name": "@termtm/promise",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Abstractions for easy promise composition",
   "main": "lib/index.js",
   "author": {
@@ -8,6 +8,7 @@
     "email": "gabe@termtm.com"
   },
   "scripts": {
+    "prebuild": "rm -rf lib",
     "build": "babel ./src --out-dir ./lib",
     "dev": "babel ./src --out-dir ./lib --source-maps --watch",
     "prepare": "npm run build"
