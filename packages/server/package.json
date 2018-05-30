@@ -1,6 +1,6 @@
 {
-  "name": "@termtm/assets",
-  "version": "0.1.1",
+  "name": "@termtm/server",
+  "version": "0.1.2",
   "main": "lib/index.js",
   "author": {
     "name": "Gabe Klein",
