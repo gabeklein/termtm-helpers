@@ -1,9 +1,9 @@
 import request from "superagent"
 
-const { SERVICE_ENDPOINT } = process.env;
+const ENDPOINT = process.env.ENDPOINT;
 
-if(!SERVICE_ENDPOINT) throw new Error(`\
-    SERVICE_ENDPOINT not set in env!
+if(!ENDPOINT) throw new Error(`\
+    ENDPOINT not set in env!
     Need a url.\
 `)
 
@@ -13,7 +13,7 @@ export default function api(endpoint) {
             if(!body)
                 throw new Error("Need data to send!")
             return request
-                .post(`${SERVICE_ENDPOINT}/${endpoint}`)
+                .post(`${ENDPOINT}/${endpoint}`)
                 .set('Accept', 'application/json')
                 .send(body)
         }

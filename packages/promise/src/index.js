@@ -10,6 +10,13 @@ export function within(t1, t2, task){
         task = t2,
         t2 = null
 
+    if(typeof task != "function")
+        return {
+            try(task){
+                return within(t1, t2, task)
+            }
+        }
+
     task = task();
 
     const timeout = new Promise(

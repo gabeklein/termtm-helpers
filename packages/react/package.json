@@ -17,6 +17,7 @@
     "access": "public"
   },
   "dependencies": {
+    "babel-preset-expressive-react-next": "^1.0.4",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-no-ssr": "^1.1.0"
@@ -26,7 +27,6 @@
     "babel-plugin-transform-class-properties": "^6.24.1",
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "babel-preset-env": "^1.7.0",
-    "babel-preset-expressive-react": "^1.2.0",
     "babel-preset-react": "^6.24.1"
   }
 }

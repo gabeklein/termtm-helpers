@@ -9,6 +9,16 @@ export const Style = ({children, global}) => do {
     )
 }
 
+export class StyleSheet {
+    StyleSheet({children}){
+        html-link(
+            rel `stylesheet`,
+            type `text/css`,
+            href = children
+        )
+    }
+}
+
 export class Script {
     Script({callback, children}){
         if(typeof children == "function"){{
@@ -29,7 +39,7 @@ export class Script {
 
 export const StyleFillHeight = ({forID}) => do {
     Style() `
-        #${id} {
+        #${forID} {
             min-height: 100vh
         }
         @media only screen 
@@ -37,15 +47,15 @@ export const StyleFillHeight = ({forID}) => do {
             and (device-height : 812px) 
             and (-webkit-device-pixel-ratio : 3)
             and (orientation : portrait) {
-            #${id} {
+            #${forID} {
                 min-height: 635px;
             }
         }
         @media only screen 
         and (device-width : 375px) 
-        and (device-width : 667px) 
+        and (device-height : 667px) 
         and (orientation : portrait) {
-            #${id} {
+            #${forID} {
                 min-height: 556px;
             }
         }
