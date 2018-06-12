@@ -1,4 +1,4 @@
-const { CDN = "/static/" } = process.env;
+const CDN = process.env.CDN;
 
 if(!CDN) throw new Error(`\
     CDN not set in env!
