@@ -33,15 +33,18 @@ export const AnimateRoutes = (props) => do {
         ...extra
     } = props;
 
-    LibRoute(render = ({ location }) => do {
-        TransitionGroup >> CSSTransition(...extra), do {
-            key = location.key;
-            classNames = classNames || states || "fade"
-            timeout = duration || 300;
+    LibRoute(
+        render = ({ location }) => do {
+            TransitionGroup(/*component = null*/) >> 
+                CSSTransition(...extra), do {
+                    key = location.key;
+                    classNames = classNames || states || "fade"
+                    timeout = duration || 300;
 
-            container(~style, +className) >> 
-                Switch(+location) > 
-                    children;
+                    container(~style, +className) >> 
+                        Switch(+location) > 
+                            children;
+                }
         }
-    })
+    )
 }
