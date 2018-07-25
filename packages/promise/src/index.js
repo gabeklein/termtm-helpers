@@ -5,6 +5,33 @@ export function sleep(ms, fn) {
         : setTimeout(fn, ms)
 }
 
+const UNIT = {
+    ms: 1,
+    seconds: 1000,
+    minutes: 1000 * 60,
+    hours: 1000 * 60 * 60
+}
+
+export function timer(time, unit = "seconds", throwOnCancel){
+    time = UNIT[unit] * time;
+
+    let timer;
+    let cancel;
+    const promise = new Promise(
+        (resolve, reject) => { 
+            cancel = reject; 
+            timer = setTimeout(resolve, time)         
+        }
+    );
+
+    promise.cancel = () => {
+        if(throwOnCancel) cancel("canceled");
+        clearTimeout(timer);
+    }
+
+    return promise;
+}
+
 export function within(t1, t2, task){
     if(!task)
         task = t2,
