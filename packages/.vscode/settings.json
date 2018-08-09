@@ -1,0 +1,7 @@
+{
+    "files.exclude": {
+        "**/.DS_Store": true,
+        "package.json": true,
+        ".vscode": true
+    }
+}
