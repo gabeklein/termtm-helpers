@@ -1,18 +1,16 @@
 {
   "presets": [
-    [ "env", {
+    [ "@babel/env", {
         "targets": {
             "node": "current"
         },
         "modules": "commonjs"
     }],
-    "react",
-    "expressive-react"
+    "@expressive-react/web"
   ],
   "plugins": [
-    "transform-object-rest-spread",
-    "transform-class-properties"
+    "@babel/plugin-proposal-object-rest-spread",
+    "@babel/plugin-proposal-class-properties"
   ],
-  "sourceMaps": "inline",
-  "compact": "false"
+  "sourceMaps": false
 }
