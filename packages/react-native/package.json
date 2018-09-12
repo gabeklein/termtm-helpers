@@ -22,11 +22,16 @@
     "react-prop-types": "^0.4.0"
   },
   "devDependencies": {
-    "babel-cli": "^6.26.0",
-    "babel-plugin-transform-class-properties": "^6.24.1",
-    "babel-plugin-transform-object-rest-spread": "^6.26.0",
-    "babel-preset-env": "^1.7.0",
-    "babel-preset-expressive-react": "^1.2.0",
-    "babel-preset-react": "^6.24.1"
+    "@babel/cli": "^7.0.0",
+    "@babel/core": "^7.0.0",
+    "@babel/plugin-proposal-class-properties": "^7.0.0",
+    "@babel/plugin-proposal-decorators": "^7.0.0",
+    "@babel/plugin-proposal-object-rest-spread": "^7.0.0",
+    "@babel/preset-env": "^7.0.0",
+    "@babel/preset-react": "^7.0.0",
+    "@expressive-react/babel-plugin-auto-extends": "^1.6.0",
+    "@expressive-react/babel-plugin-transform-xjs": "^0.16.0",
+    "@expressive-react/modify-native": "^1.4.0",
+    "babel-preset-expressive-enhancements": "^1.0.1"
   }
 }
