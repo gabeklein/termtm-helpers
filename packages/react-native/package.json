@@ -18,7 +18,8 @@
   },
   "dependencies": {
     "react": "^16.2.0",
-    "react-native": "^0.55.4"
+    "react-native": "^0.55.4",
+    "react-prop-types": "^0.4.0"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
