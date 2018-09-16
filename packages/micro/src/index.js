@@ -3,6 +3,10 @@ const router = require('fs-router')
 const path = require("path")
 
 export default function Server(dir){
+    return handle( router( absolutePath( dir )))
+}
+
+function absolutePath(dir){
     if(/^\.\//.test(dir)){
         let d = process.env.PWD;
         if(!d) throw new Error(`Path ${dir} is not absolute! Use __dirname to add your applications path or use an npm script to launch micro.`);
@@ -13,8 +17,7 @@ export default function Server(dir){
         
         dir = path.join(d, dir);
     }
-
-    return handle( router( dir ))
+    return dir;
 }
 
 export function handle(withRouter){
@@ -26,7 +29,8 @@ export function handle(withRouter){
             await matched(
                 new context(req, res)
             )
-        else send(res, 404, `No ${req.method} action at url ${req.url}`)
+        else
+            send(res, 404, `No ${req.method} action at url ${req.url}`)
     }
 }
 
