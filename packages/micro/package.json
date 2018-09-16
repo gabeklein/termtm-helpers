@@ -1,0 +1,26 @@
+{
+  "name": "@termtm/micro",
+  "version": "0.0.0",
+  "description": "Abstraction for micro server with fs-router",
+  "main": "lib/index.js",
+  "author": {
+    "name": "Gabe Klein",
+    "email": "gabe@termtm.com"
+  },
+  "scripts": {
+    "prebuild": "rm -rf lib",
+    "build": "babel ./src --out-dir ./lib",
+    "dev": "babel ./src --out-dir ./lib --source-maps --watch",
+    "prepare": "npm run build"
+  },
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-preset-env": "^1.7.0",
+    "fs-router": "^0.4.1",
+    "micro": "^9.3.3"
+  }
+}
