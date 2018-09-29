@@ -2,11 +2,15 @@ const { send, json, createError } = require('micro')
 const router = require('fs-router')
 const path = require("path")
 
-export default function Server(dir){
-    return handle( router( absolutePath( dir )))
+const SUB_API = /^\/api/;
+
+export default function Server(dir, backup){
+    dir = ensureAbsolute( dir );
+    const fsRouter = router( dir );
+    return handle(fsRouter, backup);
 }
 
-function absolutePath(dir){
+function ensureAbsolute(dir){
     if(/^\.\//.test(dir)){
         let d = process.env.PWD;
         if(!d) throw new Error(`Path ${dir} is not absolute! Use __dirname to add your applications path or use an npm script to launch micro.`);
@@ -20,17 +24,25 @@ function absolutePath(dir){
     return dir;
 }
 
-export function handle(withRouter){
+export function handle(withRouter, backup){
     return async function handle(req, res) {
-        req.url = req.url.replace(/^\/api/, "").replace(/\/$/, "")
+        req.url = req.url.replace(/\/$/, "");
 
-        let matched = withRouter(req)
-        if (matched) 
-            await matched(
-                new context(req, res)
-            )
-        else
-            send(res, 404, `No ${req.method} action at url ${req.url}`)
+        if(SUB_API.test(req.url) == true){
+            req.url = req.url.replace(SUB_API, "")
+            let matched = withRouter(req);
+            if (matched)
+                return await matched(
+                    new context(req, res)
+                )
+            else 
+                return send(res, 404, `No ${req.method} action at url ${req.url}`)
+        }
+
+        else if(backup)
+            return await backup(req, res);
+
+        send(res, 404, `No route for url ${req.url}`)
     }
 }
 
