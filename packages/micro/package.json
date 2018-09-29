@@ -1,6 +1,6 @@
 {
   "name": "@termtm/micro",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "description": "Abstraction for micro server with fs-router",
   "main": "lib/index.js",
   "author": {
