@@ -1,6 +1,7 @@
 
 const Router = require("koa-router");
 const fs = require("fs");
+const path = require("path")
 const VERBS = [
     "default",
     "JSON",
@@ -19,7 +20,7 @@ module.exports = ({directory, prefix, onError}) => {
     const router = new Router({ prefix });
 
     for(let file of files){
-        const dir = directory + "/" + file;
+        const dir = path.join(directory, file);
         const stat = fs.statSync(dir);
         if(stat.isDirectory() || stat.isFile()){
             if(/\.js$/.test(file))
