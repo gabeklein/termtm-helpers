@@ -1,6 +1,6 @@
 {
   "name": "@gabeklein/fs-koa",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Get koa2 REST routes from file system",
   "license": "MIT",
   "main": "lib/index.js",
