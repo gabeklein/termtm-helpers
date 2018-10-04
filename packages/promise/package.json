@@ -10,7 +10,7 @@
   "scripts": {
     "prebuild": "rm -rf lib",
     "build": "babel ./src --out-dir ./lib",
-    "dev": "babel ./src --out-dir ./lib --source-maps --watch",
+    "watch": "babel ./src --out-dir ./lib --source-maps --watch",
     "prepare": "npm run build"
   },
   "license": "MIT",
@@ -18,7 +18,9 @@
     "access": "public"
   },
   "devDependencies": {
-    "babel-plugin-transform-class-properties": "^6.24.1",
-    "babel-preset-env": "^1.7.0"
+    "@babel/cli": "^7.0.0",
+    "@babel/core": "^7.0.0",
+    "@babel/preset-env": "^7.0.0",
+    "@babel/plugin-proposal-class-properties": "^7.0.0"
   }
 }

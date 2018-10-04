@@ -1,15 +1,13 @@
 {
   "presets": [
-    [ "env", {
-        "targets": {
-            "node": "current"
-        },
-        "modules": "commonjs"
+    [ "@babel/env", {
+      "targets": {
+          "node": "current"
+      },
+      "modules": false
     }]
   ],
   "plugins": [
-    "transform-class-properties"
-  ],
-  "sourceMaps": "inline",
-  "compact": "false"
+    "@babel/plugin-proposal-class-properties"
+  ]
 }
