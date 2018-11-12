@@ -1,5 +1,5 @@
 
-import Dynamic from 'react-no-ssr';
+// import Dynamic from 'react-no-ssr';
 
 export const Style = ({children, global}) => do {
     html-style(
@@ -19,23 +19,23 @@ export class StyleSheet {
     }
 }
 
-export class Script {
-    Script({callback, children}){
-        if(typeof children == "function"){{
-            callback = children;
-        }}
-        const Insertion = class {
-            do(){ [false]; }
-            componentDidMount(){
-                callback()
-            }
-            shouldComponentUpdate(){
-                return false;
-            }
-        }
-        Dynamic >> Insertion
-    }
-}
+// export class Script {
+//     Script({callback, children}){
+//         if(typeof children == "function"){{
+//             callback = children;
+//         }}
+//         const Insertion = class {
+//             do(){ [false]; }
+//             componentDidMount(){
+//                 callback()
+//             }
+//             shouldComponentUpdate(){
+//                 return false;
+//             }
+//         }
+//         Dynamic >> Insertion
+//     }
+// }
 
 export const StyleFillHeight = ({forID}) => do {
     Style() `
