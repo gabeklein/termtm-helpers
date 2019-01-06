@@ -1,0 +1,26 @@
+{
+  "name": "@termtm/rest-service",
+  "version": "0.0.0",
+  "author": {
+    "name": "Gabe Klein",
+    "email": "gabe@termtm.com"
+  },
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
+  "description": "REST service using Koa",
+  "bin": {
+    "rest-service": "bin/index.js"
+  },
+  "dependencies": {
+    "@gabeklein/fs-koa": "^0.1.0",
+    "@koa/cors": "^2.2.3",
+    "commander": "^2.19.0",
+    "koa": "^2.6.2",
+    "koa-add-trailing-slashes": "^2.0.1"
+  },
+  "files": [
+    "bin/"
+  ]
+}
