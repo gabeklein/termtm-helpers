@@ -6,7 +6,7 @@
         },
         "modules": "commonjs"
     }],
-    "@expressive-react/web"
+    "@expressive/react"
   ],
   "plugins": [
     "@babel/plugin-proposal-object-rest-spread",
