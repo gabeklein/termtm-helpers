@@ -1,6 +1,6 @@
 {
   "name": "@termtm/server",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "main": "lib/index.js",
   "author": {
     "name": "Gabe Klein",
@@ -12,8 +12,10 @@
     "dev": "babel ./src --out-dir ./lib --source-maps --watch",
     "prepare": "npm run build"
   },
-  "license": "MIT", 
-  "files": ["/lib"],
+  "license": "MIT",
+  "files": [
+    "/lib"
+  ],
   "publishConfig": {
     "access": "public"
   },
