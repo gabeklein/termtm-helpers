@@ -1,0 +1,45 @@
+{
+  "name": "@termtm/site-kit",
+  "version": "1.0.0",
+  "description": "Site tools and Dev Server for my Expressive React apps.",
+  "bin": {
+    "site": "./bin/cli.js"
+  },
+  "author": {
+    "name": "Gabe Klein",
+    "email": "gabe@termtm.com"
+  },
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
+  "files": [
+    "/bin"
+  ],
+  "dependencies": {
+    "@babel/core": "^7.0.0",
+    "@babel/plugin-proposal-class-properties": "^7.0.0",
+    "@babel/plugin-proposal-decorators": "^7.0.0",
+    "@babel/plugin-proposal-object-rest-spread": "^7.0.0",
+    "@babel/plugin-transform-runtime": "^7.1.0",
+    "@babel/preset-env": "^7.0.0",
+    "@babel/preset-react": "^7.0.0",
+    "@babel/runtime": "^7.1.5",
+    "@expressive/babel-preset-react": "1.0.0-beta.3",
+    "babel-loader": "^8.0.2",
+    "babel-plugin-module-resolver": "^3.1.1",
+    "commander": "^2.19.0",
+    "dotenv": "^6.0.0",
+    "express": "^4.16.3",
+    "react-hot-loader": "^4.3.6",
+    "webpack": "^4.17.2",
+    "webpack-cli": "^3.1.0",
+    "webpack-dev-middleware": "^3.2.0",
+    "webpack-hot-middleware": "^2.24.3",
+    "webpack-initialize-entry": "^0.2.2"
+  },
+  "peerDependencies": {
+    "react": "^16.4.0",
+    "react-dom": "^16.4.0"
+  }
+}
