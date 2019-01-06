@@ -13,8 +13,8 @@ const fs_routes = require("@gabeklein/fs-koa");
 const program = module.exports = commander
     .version(version)
     .usage('[options] <scan-directory ...>')
-    .option('-p --port', "Port used by development server. Default: 3000")
-    .option('-r --prefix', "Web directory in which all API calls are located.")
+    .option('-p --port <n>', "Port used by development server. Default: 3000", parseInt)
+    .option('-r --prefix [name]', "Web directory in which all API calls are located.")
     .parse(process.argv);
 
 const {
@@ -25,12 +25,18 @@ const {
     ]
 } = program;
 
+if(prefix)
+if(prefix[0] == "/" || prefix.slice(-1)[0] == "/"){
+    console.error(`\nPrefix of "${prefix}" should avoid leading or trailing slashes\n`)
+    process.exit(1)
+}
+
 new Koa()
     .use(trailing_slashes())
     .use(access_policy())
     .use(fs_routes({
         directory: path.resolve(__cwd, dir),
-        prefix
+        prefix: prefix ? "/" + prefix : undefined
     }))
     .listen(PORT)
     .on("listening", () => {
