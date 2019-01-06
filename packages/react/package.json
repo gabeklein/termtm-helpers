@@ -12,7 +12,8 @@
     "dev": "babel ./src --out-dir ./lib --source-maps --watch",
     "prepare": "npm run build"
   },
-  "license": "MIT",
+  "license": "MIT", 
+  "files": ["/lib"],
   "publishConfig": {
     "access": "public"
   },
