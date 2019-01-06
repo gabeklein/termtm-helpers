@@ -15,15 +15,26 @@ const program = module.exports = commander
     .usage('[options] <scan-directory ...>')
     .option('-p --port <n>', "Port used by development server. Default: 3000", parseInt)
     .option('-r --prefix [name]', "Web directory in which all API calls are located.")
+    .option('--env [dir]', "Environment file to be loaded.")
+    .option('--no-env', "Do not use .env file even if it exists.")
     .parse(process.argv);
 
 const {
     port: PORT = 3000,
     prefix,
+    env,
     args: [
        dir = "./api" 
     ]
 } = program;
+
+if(env){
+    const { error } = require("dotenv").config({
+        path: path.resolve(__cwd, env === true ? ".env" : env)
+    });
+    if(error)
+        throw error
+}
 
 if(prefix)
 if(prefix[0] == "/" || prefix.slice(-1)[0] == "/"){
