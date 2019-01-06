@@ -23,6 +23,8 @@ module.exports = ({directory, prefix, onError}) => {
         const dir = path.join(directory, file);
         const stat = fs.statSync(dir);
         if(stat.isDirectory() || stat.isFile()){
+            if(file.split(".").length > 2)
+                continue;
             if(/\.js$/.test(file))
                 file = file.substring(0, file.length - 3)
             addRoute(file, dir)
@@ -35,9 +37,8 @@ module.exports = ({directory, prefix, onError}) => {
             return;
         if(typeof error == "function")
             await error(ctx);
-        else {
+        else
             ctx.body = `No method ${ctx.method} found for route ${ctx.captures[0].replace(/\/$/, "")}`
-        }
     })
     
     function addRoute(name, dir){
@@ -58,7 +59,7 @@ module.exports = ({directory, prefix, onError}) => {
                         verb == "JSON" ? "post" :
                         verb.toLowerCase();
     
-                    handle[type]("*", mod[verb])
+                    handle[type]("*", handler(mod[verb]))
                 }
                 else throw new Error(`Module export "${verb}" expects a function!`);
         }
@@ -66,4 +67,17 @@ module.exports = ({directory, prefix, onError}) => {
     }
 
     return router.routes();
+}
+
+function handler(fn){
+    return async function interop(ctx, next){
+        const output = fn(ctx, next);
+        if(output instanceof Promise)
+            output.then(returned => {
+                if(returned)
+                    ctx.body = returned
+            });
+        else if(output)
+            ctx.body = output;
+    } 
 }
