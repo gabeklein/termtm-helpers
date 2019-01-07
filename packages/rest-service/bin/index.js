@@ -4,6 +4,7 @@ const version = require('../package.json').version;
 const commander = require("commander");
 const __cwd = process.cwd();
 const path = require("path");
+const fs = require("fs");
 
 const Koa = require("koa");
 const trailing_slashes = require("koa-add-trailing-slashes");
@@ -29,11 +30,11 @@ const {
 } = program;
 
 if(env){
-    const { error } = require("dotenv").config({
-        path: path.resolve(__cwd, env === true ? ".env" : env)
-    });
-    if(error)
-        throw error
+    const envFile = path.resolve(__cwd, env === true ? ".env" : env);
+    if(fs.existsSync(envFile)){
+        const { error } = require("dotenv").config({ path: envFile });
+        if(error) throw error
+    }
 }
 
 if(prefix)
