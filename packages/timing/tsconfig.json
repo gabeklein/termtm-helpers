@@ -1,0 +1,15 @@
+{
+    "compilerOptions": {
+        "baseUrl": ".",
+        "outDir": "lib/",
+        "target": "ES2015",
+        "module": "commonjs",
+        "moduleResolution": "node",
+        "noUnusedLocals": true,
+        "strict": true,
+        "esModuleInterop": true
+    },
+    "include": [
+        "src/*.ts"
+    ]
+  }

@@ -1,6 +1,14 @@
 {
-	"license": "UNLICENSED",
-	"devDependencies": {
-		"lerna": "^2.8.0"
-	}
+  "name": "termtm-tools",
+  "license": "UNLICENSED",
+  "devDependencies": {
+    "lerna": "^2.8.0"
+  },
+  "scripts": {
+    "clean": "find . \\( -name 'node_modules' -o -name lib \\) -prune -exec rm -rf '{}' +"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gabeklein/termtm-helpers.git"
+  }
 }

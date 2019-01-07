@@ -1,6 +1,6 @@
 {
-  "name": "@termtm/promise",
-  "version": "0.4.2",
+  "name": "@termtm/timing",
+  "version": "0.0.0",
   "description": "Abstractions for easy promise composition",
   "main": "lib/index.js",
   "author": {
@@ -9,8 +9,8 @@
   },
   "scripts": {
     "prebuild": "rm -rf lib",
-    "build": "babel ./src --out-dir ./lib",
-    "watch": "babel ./src --out-dir ./lib --source-maps --watch",
+    "build": "tsc --declaration",
+    "watch": "tsc --sourceMap --watch",
     "prepare": "npm run build"
   },
   "license": "MIT",
@@ -21,9 +21,6 @@
     "access": "public"
   },
   "devDependencies": {
-    "@babel/cli": "7.0.0",
-    "@babel/core": "7.0.0",
-    "@babel/plugin-proposal-class-properties": "7.0.0",
-    "@babel/preset-env": "7.0.0"
+    "typescript": "^3.2.2"
   }
 }
