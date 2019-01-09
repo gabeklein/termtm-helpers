@@ -25,7 +25,7 @@ export class StyleSheet {
 //             callback = children;
 //         }}
 //         const Insertion = class {
-//             do(){ [false]; }
+//             render(){ return false }
 //             componentDidMount(){
 //                 callback()
 //             }
