@@ -5,3 +5,4 @@
 packages/*/lib
 package-lock.json
 lerna-debug.log
+.vscode/
