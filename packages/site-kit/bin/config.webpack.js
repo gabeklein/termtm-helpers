@@ -15,7 +15,7 @@ const OUTPUT = DEV ? 'live' : 'public';
 
 const ENV_PLUGINS = 
   DEV ? [ new webpack.HotModuleReplacementPlugin() ] : 
-  true ? vendor.include : [];
+  program.vendor == true ? vendor.include : [];
 
 //check pages folder and generate entry config based on that.
 function scanForEntry(DIR){

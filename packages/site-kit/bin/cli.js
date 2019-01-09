@@ -8,8 +8,9 @@ const path = require("path");
 const program = module.exports = commander
     .version(version)
     .usage('[options] <file ...>')
-    .option('-p --port', "Port used by development server.")
-    .option('-d --dir', "Directory where page's source files are located.")
+    .option('-p --port <n>', "Port used by development server.")
+    .option('-d --dir [directory]', "Directory where page's source files are located.")
+    .option('-v --vendor', "Depend on vendor bundles in build.")
     .parse(process.argv);
 
 const __cwd = program.cwd = process.cwd();

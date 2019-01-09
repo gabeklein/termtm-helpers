@@ -4,7 +4,11 @@ const webpack = require('webpack');
 //use express rather than webpack-dev-server, it's better for advanced dev.
 const app = express();
 const config = require('./config.webpack');
+const program = require('./cli')
 const compiler = webpack(config);
+const {
+  port: bindPort = 3000
+} = program;
 
 //react itself can override <title> per-page where needed.
 const TITLE = 'Test Site!';

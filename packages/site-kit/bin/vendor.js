@@ -60,10 +60,10 @@ function configForInclude(){
         output = "./public"
     } = program;
 
-    const bundlesExpected = Object.keys(VENDOR);
-
     if(!VENDOR || Object.keys(VENDOR).length == 0)
         program.error(`\n  Vendor bundler requires at least one bundle definition within your package.json! ${example}\n`)
+
+    const bundlesExpected = Object.keys(VENDOR);
 
     const manifestLocation = path.resolve(__cwd, bundleManifest);
 

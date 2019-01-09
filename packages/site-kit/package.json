@@ -36,7 +36,7 @@
     "webpack-cli": "^3.1.0",
     "webpack-dev-middleware": "^3.2.0",
     "webpack-hot-middleware": "^2.24.3",
-    "webpack-initialize-entry": "^0.2.2"
+    "webpack-initialize-entry": "^0.2.3"
   },
   "peerDependencies": {
     "react": "^16.4.0",
