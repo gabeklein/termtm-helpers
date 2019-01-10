@@ -71,13 +71,11 @@ module.exports = ({directory, prefix, onError}) => {
 
 function handler(fn){
     return async function interop(ctx, next){
-        const output = fn(ctx, next);
+        let output = fn(ctx, next);
         if(output instanceof Promise)
-            output.then(returned => {
-                if(returned)
-                    ctx.body = returned
-            });
-        else if(output)
+            output = await output;
+
+        if(output)
             ctx.body = output;
     } 
 }
