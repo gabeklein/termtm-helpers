@@ -9,7 +9,7 @@ const vendor = require("./vendor")
 const __cwd = program.cwd;
 
 const SOURCE = program.dir || './pages';
-const DEV = process.env.NODE_ENV !== 'production' && !program.args[0] == "build";
+const DEV = process.env.NODE_ENV !== 'production' && program.args[0] !== "build";
 const HOT = 'webpack-hot-middleware/client?reload=true&__webpack_public_path=http://webpack:3000';
 const OUTPUT = DEV ? 'live' : 'public';
 
