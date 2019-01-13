@@ -1,12 +1,13 @@
-import { render } from "react-dom";
-import { hot } from "react-hot-loader";
-import Entry from "__webpack_entry__";
+const Entry = require("__webpack_entry__").default;
+const { createElement } = require("react");
+const { render } = require("react-dom");
+const { hot } = require("react-hot-loader");
 
 const HotStuff = hot(module)(Entry);
 
 window.onload = () => {
   render(
-    do { HotStuff },
+    createElement(HotStuff),
     document.getElementsByTagName("body")[0].appendChild(
       document.createElement("div")
     )
