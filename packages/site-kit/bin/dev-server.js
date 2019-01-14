@@ -21,7 +21,7 @@ app.use('/static', express.static('static'));
 
 // dev stuff
 app.use(require('webpack-dev-middleware')(compiler, {
-  logLevel: "error"
+  // logLevel: "error"
 }));
 
 // hot stuff
@@ -46,6 +46,11 @@ const Main = (req, res, next) => {
       <meta charset="utf-8">
       <meta content="ie=edge" http-equiv="x-ua-compatible">
       <meta content="width=device-width, initial-scale=1" name="viewport">
+      <meta name="apple-mobile-web-app-capable" content="yes">
+      <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+      <meta name='viewport' content='viewport-fit=cover, maximum-scale=1.0, width=device-width, initial-scale=1.0'>
+      <link rel="apple-touch-icon" sizes="180x180" href="static/ios_180.png">
+      <link rel="apple-touch-startup-image" href="static/ios_x_startup.png">
     </head>
     <body>
       <script src="/bundle.${PAGE}.js" type="text/javascript"></script>
