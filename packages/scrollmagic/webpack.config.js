@@ -21,9 +21,9 @@ module.exports = {
     },
     externals: {
         ScrollMagic: "ScrollMagic",
-        "TweenLite": "TweenLite",
-        "TimelineLite": "TimelineLite",
-        "TweenMax": "TweenMax",
-        "TimelineMax": "TimelineMax",
+        TweenLite: "TweenLite",
+        TimelineLite: "TimelineLite",
+        TweenMax: "TweenMax",
+        TimelineMax: "TimelineMax",
     }
 }
