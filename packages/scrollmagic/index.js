@@ -42,7 +42,7 @@ function SceneFrom(props){
     return scene;
 }
 
-function Script(callback){
+function RunAtRenderTime(callback){
     return class {
         render(){ return false }
         shouldComponentUpdate(){ return false }
@@ -52,9 +52,11 @@ function Script(callback){
     } 
 }
 
+export { ScrollMagic }
+
 export const getController = () => globalController;
 
-export const SetupScrollMagic = Script(() => {
+export const SetupScrollMagic = RunAtRenderTime(() => {
     if(globalController)
         globalController.destroy(true);
 
@@ -66,13 +68,13 @@ export const Scene = (params) => {
 }
 
 export const OnScroll = 
-    Script((props) => {
+    RunAtRenderTime((props) => {
         let { toggle, active = "active" } = props;
         SceneFrom(props).setClassToggle(toggle, active);
     })
 
 const Injectable = (Using) => 
-    Script((props) => {
+    RunAtRenderTime((props) => {
 
         const init = props.children;
         if(typeof init !== "function")

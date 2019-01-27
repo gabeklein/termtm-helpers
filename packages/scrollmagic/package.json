@@ -10,6 +10,7 @@
     "install": "webpack"
   },
   "module": "index.js",
+  "typings": "types.d.ts",
   "license": "MIT",
   "publishConfig": {
     "access": "public"
@@ -19,9 +20,11 @@
     "webpack.config.js"
   ],
   "dependencies": {
-    "webpack": "^4.28.4",
-    "webpack-cli": "^3.2.1",
+    "@types/gsap": "^1.20.1",
+    "@types/react": "^16.7.21",
     "gsap": "^2.0.2",
-    "scrollmagic": "^2.0.6"
+    "scrollmagic": "^2.0.6",
+    "webpack": "^4.28.4",
+    "webpack-cli": "^3.2.1"
   }
 }
