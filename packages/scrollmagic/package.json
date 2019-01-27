@@ -9,7 +9,7 @@
   "scripts": {
     "install": "webpack"
   },
-  "module": "src/index.js",
+  "module": "index.js",
   "license": "MIT",
   "publishConfig": {
     "access": "public"

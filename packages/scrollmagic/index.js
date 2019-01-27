@@ -1,8 +1,8 @@
 import { TimelineLite } from "gsap";
 
-require("../lib/ScrollMagic");
-require("../lib/animation.gsap");
-require("../lib/debug.addIndicators")
+require("./lib/ScrollMagic");
+require("./lib/animation.gsap");
+require("./lib/debug.addIndicators")
 
 const { ScrollMagic } = window;
 
