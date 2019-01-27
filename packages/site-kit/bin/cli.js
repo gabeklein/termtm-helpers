@@ -11,6 +11,7 @@ const program = module.exports = commander
     .option('-p --port <n>', "Port used by development server.")
     .option('-d --dir [directory]', "Directory where page's source files are located.")
     .option('-v --vendor', "Depend on vendor bundles in build.")
+    .option('-e --webpack-extends [directory]', "Webpack config which should augment defaults")
     .parse(process.argv);
 
 const __cwd = program.cwd = process.cwd();

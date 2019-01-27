@@ -18,12 +18,18 @@ function configForBundle(){
     const {
         output = "./public"
     } = program;
-    
-    if(!VENDOR || Object.keys(VENDOR).length == 0)
+
+    const entries = {};
+
+    for(const bundle in VENDOR || {})
+      if(typeof VENDOR[bundle] == "object")
+        entries[bundle] = VENDOR[bundle];
+
+    if(!VENDOR || Object.keys(entries).length == 0)
       program.error(`\n  Vendor bundler requires at least one bundle definition within your package.json! ${example}\n`)
     
     return {
-      entry: VENDOR,
+      entry: entries,
     
       mode: PROD 
         ? 'production'
@@ -67,7 +73,9 @@ function configForInclude(){
 
     const manifestLocation = path.resolve(__cwd, bundleManifest);
 
-    return bundlesExpected.map(name => {
+    const dllReferences = [];
+
+    for(const name of bundlesExpected){
       const manifestName = `vendor.${name}.json`;
       let manifest;
       
@@ -78,11 +86,15 @@ function configForInclude(){
         program.error(`Couldn't find manifest file "${manifestName}" in working directory: "${manifestLocation}"\n Run "site vendor" to create needed files.`)
       }
 
-      return new webpack.DllReferencePlugin({
-        context: __cwd, 
-        manifest
-      })
-    });
+      dllReferences.push(
+        new webpack.DllReferencePlugin({
+          context: __cwd, 
+          manifest
+        })
+      ) 
+    }
+
+    return dllReferences;
 }
 
 Object.defineProperty(exports, "config", { get: configForBundle });

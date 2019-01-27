@@ -9,13 +9,21 @@ const vendor = require("./vendor")
 const __cwd = program.cwd;
 
 const SOURCE = program.dir || './pages';
-const DEV = process.env.NODE_ENV !== 'production' && program.args[0] !== "build";
+const DEV = process.env.NODE_ENV === 'development' || process.env.NODE_ENV !== 'production' && program.args[0] !== "build";
 const HOT = 'webpack-hot-middleware/client?reload=true&__webpack_public_path=http://webpack:3000';
-const OUTPUT = DEV ? 'live' : 'public';
+const OUTPUT = 'public';
+const EXTENDS = program.webpackExtends;
 
-const ENV_PLUGINS = 
-  DEV ? [ new webpack.HotModuleReplacementPlugin() ] : 
-  program.vendor == true ? vendor.include : [];
+const ENV_PLUGINS = [];
+
+if(DEV) ENV_PLUGINS.push(
+  new webpack.HotModuleReplacementPlugin()
+);
+
+if(program.vendor === true)
+  ENV_PLUGINS.push(
+    ...vendor.include
+  );
 
 //check pages folder and generate entry config based on that.
 function scanForEntry(DIR){
@@ -31,7 +39,7 @@ function scanForEntry(DIR){
   return PAGES;
 }
 
-module.exports = {
+let config = {
   entry: scanForEntry(SOURCE),
   context: path.resolve(__cwd, './pages/'),
   // optimization: { noEmitOnErrors: true },
@@ -90,3 +98,20 @@ module.exports = {
     }]
   }
 };
+
+if(EXTENDS){
+  const merge = require("merge-options");
+
+  const configFile = path.resolve(__cwd, 
+    typeof EXTENDS == "string" ? EXTENDS : "webpack.config.js");
+
+  if(!fs.existsSync(configFile))
+    program.error(`Webpack extention "${path.relative(__cwd, configFile)}" (for flag -e, --webpack-extends) not found!`)
+
+
+  const extend = require(configFile);
+
+  config = merge(config, extend);
+}
+
+module.exports = config;
